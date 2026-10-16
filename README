@@ -1,0 +1,44 @@
+Plan trips, track spending, stay on budget.
+
+Tripper is a cross-platform mobile app for planning trips and tracking what you spend on them. Create a trip with a budget, log activities and costs under categories, set spending targets, and see where your money is going in charts. All data is stored locally on the device.
+
+## Features
+
+- **Accounts:** register and log in with email and password. Passwords are hashed (bcryptjs), and data stays on the device. Accounts and all their data can be deleted from Settings.
+- **Trips:** create trips with a destination, dates, budget and notes. Search them and filter by all, upcoming or past.
+- **Budget tracking:** each trip shows spent, budget and remaining (or over budget) with a progress bar.
+- **Activities:** add costs to a trip with a title, date, amount, optional duration and notes. Mark them as planned or completed. Search and filter by text, date range or category.
+- **Categories:** five defaults (Accommodation, Travel, Activities, Food, Extra Spending), plus custom ones with your own name, colour and icon. A category that's in use can't be deleted.
+- **Spending targets:** set weekly, monthly or per-trip targets, optionally for one category or trip.
+- **Insights:** bar charts of spending by day, week or month, a pie chart by category, and a weekly target streak counting consecutive weeks under budget.
+- **Live weather:** today's temperature, wind and rain for your destination, using the Stormglass API.
+- **Dark mode:** light and dark themes.
+- **Sample data:** new accounts get default categories and a sample "Paris Weekend" trip to explore.
+
+## Tech stack
+
+| Area | Tools |
+|------|-------|
+| Framework | React Native 0.81, Expo SDK 54, Expo Router |
+| Language | TypeScript |
+| Database | SQLite (expo-sqlite) with Drizzle ORM |
+| Charts | react-native-chart-kit, react-native-svg |
+| Auth | bcryptjs, local accounts |
+| Weather | Stormglass API |
+| Testing | Jest, React Native Testing Library, sql.js (in-memory test database) |
+
+
+
+## Project structure
+
+```
+app/            Screens and navigation (Expo Router)
+  (tabs)/       Trips, Insights and Settings tabs
+assets/         Images and static files
+components/ui/  Reusable UI components
+constants/      Theme (colours, spacing, fonts)
+context/        Auth, data and theme providers
+db/             Drizzle schema, SQLite client, seed data
+services/       Weather (Stormglass) and data logic
+__tests__/      Jest tests
+```
